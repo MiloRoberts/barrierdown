@@ -10,7 +10,8 @@ class Game extends Model
     use HasFactory;
 
     protected $fillable = [];
-    
+    protected $table = 'game';
+
     public function platform() {
         return $this->belongsTo(Platform::class);
     }
@@ -19,5 +20,8 @@ class Game extends Model
         return $this->belongsTo(Title::class);
     }
 
-    protected $table = 'game';
+    public function company() {
+        return $this->belongsToMany(Company::class)
+            ->withPivot('is_developer', 'is_publisher');
+    }
 }
