@@ -11,13 +11,13 @@
         <nav>
             <ul>
                 <li>
-                    <a href="./">Home</a>
+                    <a href="/">Home</a>
                 </li>
                 <!-- <li>
-                    <a href="./">Sign in</a>
+                    <a href="/">Sign in</a>
                 </li> -->
                 <li>
-                    <a href="./register">Sign up</a>
+                    <a href="/register">Sign up</a>
                 </li>
             </ul>
         </nav>

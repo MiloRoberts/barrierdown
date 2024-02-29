@@ -3,8 +3,12 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Company;
+use App\Models\Company_Game;
+use App\Models\Developer;
 use App\Models\Game;
 use App\Models\Platform;
+use App\Models\Publisher;
 use App\Models\Title;
 use Illuminate\Database\Seeder;
 
@@ -60,6 +64,40 @@ class DatabaseSeeder extends Seeder
             'title_id' => $super_puyo_puyo_tsuu_remix->id,
             'slug' => 'super-puyo-puyo-tsuu-remix-super-famicom',
             'year_released' => 1996
+        ]);
+
+        $omiyaSoft = Company::create([
+            'name' => 'Omiya Soft',
+            'slug' => 'omiya-soft'
+        ]);
+        
+        $mediaFactory = Company::create([
+            'name' => 'Media Factory',
+            'slug' => 'media-factory'
+        ]);
+        
+        $compile = Company::create([
+            'name' => 'Compile',
+            'slug' => 'compile'
+        ]);
+        
+        Company_Game::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'company_id' => $omiyaSoft->id,
+            'is_developer' => true
+        ]);
+        
+        Company_Game::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'company_id' => $mediaFactory->id,
+            'is_publisher' => true
+        ]);        
+        
+        Company_Game::create([
+            'game_id' => $nintendo_super_famicom->id,
+            'company_id' => $compile->id,
+            'is_developer' => true,
+            'is_publisher' => true
         ]);
     }
 }

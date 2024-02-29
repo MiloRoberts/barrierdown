@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('title_id')->references('id')->on('title')->onDelete('cascade');
             $table->foreign('platform_id')->references('id')->on('platform')->onDelete('cascade');
             $table->unique( array('title_id','platform_id'), 'game_unique' );
-            // $table->text('info')->nullable();
+            $table->text('info')->nullable();
             $table->year('year_released');
             $table->string('slug')->unique();
             // $table->timestamp('time_posted');

@@ -10,9 +10,9 @@
     <header>
         <nav>
             <ul>
-                <!-- <li>
+                <li>
                     <a href="/">Home</a>
-                </li> -->
+                </li>
                 <li>
                     <a href="/login">Sign in</a>
                 </li>
@@ -23,16 +23,14 @@
         </nav>
     </header>
     <main>
-        @foreach($games as $game)
-            <div>
-                <h2>
-                    <a href="/games/{{ $game->slug }}">{{ $game->title->english_name }}</a>
-                </h2>
-                <h3>
-                    <a href="/">{{ $game->platform->full_name }}</a>
-                </h3>
-            </div>    
-        @endforeach
+        <div>
+            <h2>
+                <a href="/games/{{ $game->slug }}">{{ $game->title->english_name }}</a>
+            </h2>
+            <h3>
+                <a href="/">{{ $game->platform->full_name }}</a>
+            </h3>
+        </div>    
     </main>
 </body>
 </html>
