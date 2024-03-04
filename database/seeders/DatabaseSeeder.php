@@ -4,9 +4,16 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Company;
-use App\Models\Company_Game;
+use App\Models\CompanyGame;
 use App\Models\Developer;
 use App\Models\Game;
+use App\Models\KanjiMeaning;
+use App\Models\KanjiReading;
+use App\Models\KanjiSymbol;
+use App\Models\LexemeItem;
+use App\Models\LexemeMeaning;
+use App\Models\LexemeReading;
+use App\Models\LexicalClass;
 use App\Models\Platform;
 use App\Models\Publisher;
 use App\Models\Title;
@@ -81,23 +88,52 @@ class DatabaseSeeder extends Seeder
             'slug' => 'compile'
         ]);
         
-        Company_Game::create([
+        CompanyGame::create([
             'game_id' => $culdcept_expansion_plus->id,
             'company_id' => $omiyaSoft->id,
             'is_developer' => true
         ]);
         
-        Company_Game::create([
+        CompanyGame::create([
             'game_id' => $culdcept_expansion_plus->id,
             'company_id' => $mediaFactory->id,
             'is_publisher' => true
         ]);        
         
-        Company_Game::create([
+        CompanyGame::create([
             'game_id' => $nintendo_super_famicom->id,
             'company_id' => $compile->id,
             'is_developer' => true,
             'is_publisher' => true
+        ]);
+
+        LexicalClass::create([
+           'class' => 'noun'
+        ]);
+
+        LexemeItem::create([
+            'item' => '日本'
+        ]);
+
+        LexemeMeaning::create([
+           'meaning' => 'Japan'
+        ]);
+
+        LexemeReading::create([
+           'reading' => 'にほん'
+        ]);
+
+        KanjiSymbol::create([
+           'symbol' => '日',
+           'reference' => 'a12.b3'
+        ]);
+
+        KanjiMeaning::create([
+           'meaning' => 'day'
+        ]);
+
+        KanjiReading::create([
+           'reading' => '二'
         ]);
     }
 }

@@ -12,16 +12,25 @@ class Game extends Model
     protected $fillable = [];
     protected $table = 'game';
 
-    public function platform() {
+    public function platforms() {
         return $this->belongsTo(Platform::class);
     }
     
-    public function title() {
+    public function titles() {
         return $this->belongsTo(Title::class);
     }
 
-    public function company() {
+    public function companies() {
         return $this->belongsToMany(Company::class)
             ->withPivot('is_developer', 'is_publisher');
+    }
+
+    public function lexemes() {
+        return $this->belongsToMany(LexemeClass::class);
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class)
+            ->withPivot('is_learning');
     }
 }

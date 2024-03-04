@@ -10,10 +10,9 @@ class Platform extends Model
     use HasFactory;
 
     protected $fillable = [];
+    protected $table = 'platform';
 
     public function games() {
         return $this->hasMany(Game::class);
     }
-
-    protected $table = 'platform';
 }

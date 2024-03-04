@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Company_Game extends Model
+class LexemeLexicalClass extends Model
 {
     use HasFactory;
-
     protected $fillable = [];
-    protected $table = 'company_game';
-
+    protected $table = 'lexeme_lexical_class';
 }

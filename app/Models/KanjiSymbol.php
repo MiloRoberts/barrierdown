@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Title extends Model
+class KanjiSymbol extends Model
 {
     use HasFactory;
 
     protected $fillable = [];
-    protected $table = 'title';
+    protected $table = 'kanji_symbol';
 
-    public function games() {
-        return $this->hasMany(Game::class);
+    public function kanji() {
+        return $this->hasMany(Kanji::class);
     }
 }

@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Title extends Model
+class LexemeMeaning extends Model
 {
     use HasFactory;
 
     protected $fillable = [];
-    protected $table = 'title';
+    protected $table = 'lexeme_meaning';
 
-    public function games() {
-        return $this->hasMany(Game::class);
+    public function lexemes() {
+        return $this->hasMany(Lexeme::class);
     }
 }
