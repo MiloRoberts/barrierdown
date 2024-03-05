@@ -12,6 +12,8 @@ class Company extends Model
     protected $fillable = [];
     protected $table = 'company';
 
+    public $timestamps = false;
+
     public function games() {
         return $this->belongsToMany(Game::class)
             ->withPivot('is_developer', 'is_publisher');

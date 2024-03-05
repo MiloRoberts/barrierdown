@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('full_name')->unique();
             $table->string('short_name')->unique();
             $table->string('slug')->unique();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

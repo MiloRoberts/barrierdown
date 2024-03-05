@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('lexeme_meaning_id')->references('id')->on('lexeme_meaning')->onDelete('cascade');
             $table->foreign('lexeme_reading_id')->references('id')->on('lexeme_reading')->onDelete('cascade');
             $table->unique( array('lexeme_item_id','lexeme_meaning_id', 'lexeme_reading_id'), 'lexeme_unique' );
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

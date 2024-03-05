@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('english_name')->unique();
             $table->string('japanese_name')->unique();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

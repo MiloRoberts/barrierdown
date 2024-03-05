@@ -12,6 +12,8 @@ class KanjiMeaning extends Model
     protected $fillable = [];
     protected $table = 'kanji_meaning';
 
+    public $timestamps = false;
+
     public function kanji() {
         return $this->hasMany(Kanji::class);
     }

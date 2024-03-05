@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unique( array('company_id', 'game_id'), 'company_game_unique' );
             $table->boolean('is_developer')->default(false);
             $table->boolean('is_publisher')->default(false);
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

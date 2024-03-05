@@ -11,6 +11,8 @@ class Kanji extends Model
 
     protected $table = 'kanji';
     protected $fillable = [];
+
+    public $timestamps = false;
     
     public function kanji_characters() {
         return $this->belongsTo(KanjiCharacter::class);

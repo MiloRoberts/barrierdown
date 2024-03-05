@@ -12,6 +12,8 @@ class LexicalClass extends Model
     protected $fillable = [];
     protected $table = 'lexical_class';
 
+    public $timestamps = false;
+
     public function lexemes() {
         return $this->belongsToMany(LexemeClass::class);
     }

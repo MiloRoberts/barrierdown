@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('user');
             $table->unique( array('game_id', 'user_id'), 'game_user_unique' );
             $table->boolean('is_learning')->default(false);
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

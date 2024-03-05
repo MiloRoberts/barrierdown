@@ -7,10 +7,14 @@ use App\Models\Company;
 use App\Models\CompanyGame;
 use App\Models\Developer;
 use App\Models\Game;
+use App\Models\GameLexeme;
+use App\Models\Kanji;
 use App\Models\KanjiMeaning;
 use App\Models\KanjiReading;
 use App\Models\KanjiSymbol;
+use App\Models\Lexeme;
 use App\Models\LexemeItem;
+use App\Models\LexemeLexicalClass;
 use App\Models\LexemeMeaning;
 use App\Models\LexemeReading;
 use App\Models\LexicalClass;
@@ -134,6 +138,28 @@ class DatabaseSeeder extends Seeder
 
         KanjiReading::create([
            'reading' => '二'
+        ]);
+
+        Kanji::create([
+            'kanji_symbol_id' => 1,
+            'kanji_meaning_id' => 1,
+            'kanji_reading_id' => 1,
+        ]);
+
+        Lexeme::create([
+            'lexeme_item_id' => 1,
+            'lexeme_meaning_id' => 1,
+            'lexeme_reading_id' => 1
+        ]);
+
+        LexemeLexicalClass::create([
+            'lexeme_id' => 1,
+            'lexical_class_id' => 1,
+        ]);
+
+        GameLexeme::create([
+            'game_id' => 1,
+            'lexeme_id' => 1
         ]);
     }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreign('kanji_meaning_id')->references('id')->on('kanji_meaning')->onDelete('cascade');
             $table->foreign('kanji_reading_id')->references('id')->on('kanji_reading')->onDelete('cascade');
             $table->unique( array('kanji_symbol_id','kanji_meaning_id', 'kanji_reading_id'), 'kanji_unique' );
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

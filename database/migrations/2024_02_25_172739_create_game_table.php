@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text('info')->nullable();
             $table->year('year_released');
             $table->string('slug')->unique();
-            // $table->timestamp('time_posted');
             // $table->datetime('...stuff...');
             $table->timestamps();
         });

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lexical_class', function (Blueprint $table) {
             $table->id();
             $table->string('class')->unique();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

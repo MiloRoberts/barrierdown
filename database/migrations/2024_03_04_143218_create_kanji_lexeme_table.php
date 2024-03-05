@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('kanji_id')->references('id')->on('kanji');
             $table->foreign('lexeme_id')->references('id')->on('lexeme');
             $table->unique( array('kanji_id', 'lexeme_id'), 'kanji_lexeme_unique' );
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

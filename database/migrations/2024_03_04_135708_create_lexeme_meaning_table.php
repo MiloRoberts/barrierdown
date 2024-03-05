@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lexeme_meaning', function (Blueprint $table) {
             $table->id();
             $table->string('meaning')->unique();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

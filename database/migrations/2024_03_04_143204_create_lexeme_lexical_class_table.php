@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('lexeme_id')->references('id')->on('lexeme');
             $table->foreign('lexical_class_id')->references('id')->on('lexical_class');
             $table->unique( array('lexeme_id', 'lexical_class_id'), 'lexeme_lexical_class_unique' );
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

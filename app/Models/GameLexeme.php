@@ -11,4 +11,6 @@ class GameLexeme extends Model
 
     protected $fillable = [];
     protected $table = 'game_lexeme';
+
+    public $timestamps = false;
 }

@@ -12,6 +12,8 @@ class Platform extends Model
     protected $fillable = [];
     protected $table = 'platform';
 
+    public $timestamps = false;
+
     public function games() {
         return $this->hasMany(Game::class);
     }

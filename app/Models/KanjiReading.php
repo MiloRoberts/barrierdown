@@ -12,6 +12,8 @@ class KanjiReading extends Model
     protected $fillable = [];
     protected $table = 'kanji_reading';
 
+    public $timestamps = false;
+    
     public function kanji() {
         return $this->hasMany(Kanji::class);
     }

@@ -11,4 +11,6 @@ class LexemeUser extends Model
 
     protected $fillable = [];
     protected $table = 'lexeme_user';
+
+    public $timestamps = false;
 }

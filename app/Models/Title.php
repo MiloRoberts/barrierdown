@@ -12,6 +12,8 @@ class Title extends Model
     protected $fillable = [];
     protected $table = 'title';
 
+    public $timestamps = false;
+
     public function games() {
         return $this->hasMany(Game::class);
     }

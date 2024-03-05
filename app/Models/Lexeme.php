@@ -12,6 +12,8 @@ class Lexeme extends Model
     protected $table = 'lexeme';
     protected $fillable = [];
 
+    public $timestamps = false;
+
     public function lexeme_items() {
         return $this->belongsTo(LexemeItem::class);
     }

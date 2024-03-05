@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('lexeme_reading', function (Blueprint $table) {
             $table->id();
             $table->string('reading')->unique();
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

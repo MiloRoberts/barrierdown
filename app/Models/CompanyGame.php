@@ -12,4 +12,6 @@ class CompanyGame extends Model
     protected $fillable = [];
     protected $table = 'company_game';
 
+    public $timestamps = false;
+
 }

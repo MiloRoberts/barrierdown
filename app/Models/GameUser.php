@@ -11,4 +11,6 @@ class GameUser extends Model
 
     protected $fillable = [];
     protected $table = 'game_user';
+
+    public $timestamps = false;
 }

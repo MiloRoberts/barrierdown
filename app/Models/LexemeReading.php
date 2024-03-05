@@ -12,6 +12,8 @@ class LexemeReading extends Model
     protected $fillable = [];
     protected $table = 'lexeme_reading';
 
+    public $timestamps = false;
+
     public function lexemes() {
         return $this->hasMany(Lexeme::class);
     }

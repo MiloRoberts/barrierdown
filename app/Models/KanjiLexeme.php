@@ -11,4 +11,6 @@ class KanjiLexeme extends Model
 
     protected $fillable = [];
     protected $table = 'kanji_lexeme';
+
+    public $timestamps = false;
 }

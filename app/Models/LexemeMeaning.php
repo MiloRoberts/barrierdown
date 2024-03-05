@@ -12,6 +12,8 @@ class LexemeMeaning extends Model
     protected $fillable = [];
     protected $table = 'lexeme_meaning';
 
+    public $timestamps = false;
+    
     public function lexemes() {
         return $this->hasMany(Lexeme::class);
     }

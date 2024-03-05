@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreign('game_id')->references('id')->on('game');
             $table->foreign('lexeme_id')->references('id')->on('lexeme');
             $table->unique( array('game_id', 'lexeme_id'), 'game_lexeme_unique' );
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 
