@@ -16,16 +16,12 @@ class Game extends Model
         return $this->belongsToMany(Company::class, 'company_id', 'id');
     }
 
-    public function difficulty() {
-        return $this->belongsTo(Difficulty::class);
+    public function game_section() {
+        return $this->hasMany(GameSection::class);
     }
 
     public function genre() {
         return $this->belongsToMany(Genre::class);
-    }
-    
-    public function lexeme() {
-        return $this->belongsToMany(LexemeClass::class);
     }
 
     public function platform() {
@@ -43,5 +39,9 @@ class Game extends Model
     public function user() {
         return $this->belongsToMany(User::class)
             ->withPivot('is_learning');
+    }
+
+    public function vocab_size() {
+        return $this->belongsTo(VocabSize::class);
     }
 }

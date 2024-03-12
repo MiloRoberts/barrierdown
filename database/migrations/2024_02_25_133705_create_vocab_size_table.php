@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('difficulty', function (Blueprint $table) {
+        Schema::create('vocab_size', function (Blueprint $table) {
             $table->id();
-            $table->string('level')->unique();
+            $table->string('size')->unique();
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('difficulty');
+        Schema::dropIfExists('vocab_size');
     }
 };

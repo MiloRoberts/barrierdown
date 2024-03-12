@@ -14,6 +14,15 @@ class Lexeme extends Model
 
     public $timestamps = false;
 
+    
+    public function game_section() {
+        return $this->belongsToMany(Game::class);
+    }
+    
+    public function kanji() {
+        return $this->belongsToMany(KanjiClass::class);
+    }
+    
     public function lexeme_item() {
         return $this->belongsTo(LexemeItem::class);
     }
@@ -29,15 +38,7 @@ class Lexeme extends Model
     public function lexical_class() {
         return $this->belongsToMany(LexicalClass::class);
     }
-
-    public function kanji() {
-        return $this->belongsToMany(KanjiClass::class);
-    }
-
-    public function game() {
-        return $this->belongsToMany(Game::class);
-    }
-
+    
     public function user() {
         return $this->belongsToMany(User::class)
             ->withPivot('is_learning');

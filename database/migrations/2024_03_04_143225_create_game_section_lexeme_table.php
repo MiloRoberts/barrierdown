@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lexeme_lexical_class', function (Blueprint $table) {
+        Schema::create('game_section_lexeme', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('game_section_id');
+            $table->foreign('game_section_id')->references('id')->on('game_section');
             $table->foreignId('lexeme_id');
-            $table->foreignId('lexical_class_id');
             $table->foreign('lexeme_id')->references('id')->on('lexeme');
-            $table->foreign('lexical_class_id')->references('id')->on('lexical_class');
-            $table->unique( array('lexeme_id', 'lexical_class_id'), 'lexeme_lexical_class_unique' );
+            $table->unique( array('game_section_id', 'lexeme_id'), 'game_section_lexeme_unique' );
         });
     }
 
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lexeme_lexical_class');
+        Schema::dropIfExists('game_section_lexeme');
     }
 };

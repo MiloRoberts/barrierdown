@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('game_lexeme', function (Blueprint $table) {
+        Schema::create('game_section', function (Blueprint $table) {
             $table->id();
             $table->foreignId('game_id');
-            $table->foreignId('lexeme_id');
-            $table->foreign('game_id')->references('id')->on('game');
-            $table->foreign('lexeme_id')->references('id')->on('lexeme');
-            $table->unique( array('game_id', 'lexeme_id'), 'game_lexeme_unique' );
-            // $table->timestamps();
+            $table->foreign('game_id')->references('id')->on('game')->onDelete('cascade');
+            $table->string('name');
         });
     }
 
@@ -27,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('game_lexeme');
+        Schema::dropIfExists('game_section');
     }
 };

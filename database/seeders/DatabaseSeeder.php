@@ -5,11 +5,11 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Company;
 use App\Models\Developer;
-use App\Models\Difficulty;
 use App\Models\Game;
 use App\Models\GameDeveloperCompany;
 use App\Models\GameGenre;
-use App\Models\GameLexeme;
+use App\Models\GameSection;
+use App\Models\GameSectionLexeme;
 use App\Models\Genre;
 use App\Models\Kanji;
 use App\Models\KanjiMeaning;
@@ -24,6 +24,7 @@ use App\Models\LexicalClass;
 use App\Models\Platform;
 use App\Models\Publisher;
 use App\Models\Title;
+use App\Models\VocabSize;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -97,16 +98,16 @@ class DatabaseSeeder extends Seeder
             'name' => 'tile matching'
         ]);
 
-        $light = Difficulty::create([
-            'level' => 'light'
+        $light = VocabSize::create([
+            'size' => 'light'
         ]);
 
-        $moderate = Difficulty::create([
-            'level' => 'moderate'
+        $moderate = VocabSize::create([
+            'size' => 'moderate'
         ]);
 
-        $heavy = Difficulty::create([
-            'level' => 'heavy'
+        $heavy = VocabSize::create([
+            'size' => 'heavy'
         ]);
 
         Game::create([
@@ -114,17 +115,19 @@ class DatabaseSeeder extends Seeder
             'title_id' => $culdcept_expansion_plus->id,
             'slug' => 'culdcept-expansion-plus-sony-playstation',
             'as_publisher_company_id' => $mediaFactory->id,
-            'difficulty_id' => $moderate->id,
-            'year_released' => 2000
+            'vocab_size_id' => $moderate->id,
+            'year_released' => 2000,
+            'short_description' => 'Strategy game with customizable decks of spells and monsters'
         ]);
 
         Game::create([
             'platform_id' => $nintendo_super_famicom->id,
             'title_id' => $super_puyo_puyo_tsuu_remix->id,
             'slug' => 'super-puyo-puyo-tsuu-remix-super-famicom',
-            'difficulty_id' => $light->id,
             'as_publisher_company_id' => $compile->id,
-            'year_released' => 1996
+            'vocab_size_id' => $light->id,
+            'year_released' => 1996,
+            'short_description' => 'Competitive puzzle game with cast of charmingly wacky characters'
         ]);
         
         GameGenre::create([
@@ -162,8 +165,18 @@ class DatabaseSeeder extends Seeder
             'company_id' => $compile->id
         ]);
 
+        GameSection::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'name' => 'menus and starter cards'
+        ]);
+
+        GameSection::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'name' => 'common cards'
+        ]);
+
         LexicalClass::create([
-           'class' => 'noun'
+            'class' => 'noun'
         ]);
 
         LexemeItem::create([
@@ -171,24 +184,24 @@ class DatabaseSeeder extends Seeder
         ]);
 
         LexemeMeaning::create([
-           'meaning' => 'Japan'
+            'meaning' => 'Japan'
         ]);
 
         LexemeReading::create([
-           'reading' => 'にほん'
+            'reading' => 'にほん'
         ]);
 
         KanjiSymbol::create([
-           'symbol' => '日',
-           'reference' => 'a12.b3'
+            'symbol' => '日',
+            'reference' => 'a12.b3'
         ]);
 
         KanjiMeaning::create([
-           'meaning' => 'day'
+            'meaning' => 'day'
         ]);
 
         KanjiReading::create([
-           'reading' => '二'
+            'reading' => '二'
         ]);
 
         Kanji::create([
@@ -208,8 +221,8 @@ class DatabaseSeeder extends Seeder
             'lexical_class_id' => 1,
         ]);
 
-        GameLexeme::create([
-            'game_id' => 1,
+        GameSectionLexeme::create([
+            'game_section_id' => $culdcept_expansion_plus->id,
             'lexeme_id' => 1
         ]);
     }

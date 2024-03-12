@@ -20,9 +20,10 @@ return new class extends Migration
             $table->foreignId('as_publisher_company_id');
             $table->foreign('as_publisher_company_id')->references('id')->on('company')->onDelete('cascade');
             $table->unique( array('title_id','platform_id', 'as_publisher_company_id'), 'game_unique' );
-            $table->foreignId('difficulty_id');
-            $table->foreign('difficulty_id')->references('id')->on('difficulty')->onDelete('cascade');
+            $table->foreignId('vocab_size_id');
+            $table->foreign('vocab_size_id')->references('id')->on('vocab_size')->onDelete('cascade');
             $table->text('info')->nullable();
+            $table->string('short_description');
             $table->year('year_released');
             $table->string('slug')->unique();
             // $table->datetime('...stuff...');

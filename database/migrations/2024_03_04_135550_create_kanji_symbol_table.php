@@ -14,8 +14,7 @@ return new class extends Migration
         Schema::create('kanji_symbol', function (Blueprint $table) {
             $table->id();
             $table->string('symbol')->unique();
-            $table->string('reference');
-            // $table->timestamps();
+            $table->string('reference', 8);
         });
     }
 
