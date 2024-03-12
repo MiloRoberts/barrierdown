@@ -11,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('lexeme_user', function (Blueprint $table) {
+        Schema::create('lexeme_kanji', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('kanji_id');
             $table->foreignId('lexeme_id');
-            $table->foreignId('user_id');
+            $table->foreign('kanji_id')->references('id')->on('kanji');
             $table->foreign('lexeme_id')->references('id')->on('lexeme');
-            $table->foreign('user_id')->references('id')->on('user');
-            $table->unique( array('lexeme_id', 'user_id'), 'lexeme_user_unique' );
-            $table->boolean('is_learning')->default(false);
-            // $table->timestamps();
+            $table->unique( array('kanji_id', 'lexeme_id'), 'lexeme_kanji_unique' );
         });
     }
 
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('lexeme_user');
+        Schema::dropIfExists('lexeme_kanji');
     }
 };

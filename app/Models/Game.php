@@ -10,26 +10,37 @@ class Game extends Model
     use HasFactory;
 
     protected $fillable = [];
-    protected $table = 'game';
+    protected $table = 'game';  
 
-    public function platforms() {
-        return $this->belongsTo(Platform::class);
+    public function developerCompany() {
+        return $this->belongsToMany(Company::class, 'company_id', 'id');
+    }
+
+    public function difficulty() {
+        return $this->belongsTo(Difficulty::class);
+    }
+
+    public function genre() {
+        return $this->belongsToMany(Genre::class);
     }
     
-    public function titles() {
-        return $this->belongsTo(Title::class);
-    }
-
-    public function companies() {
-        return $this->belongsToMany(Company::class)
-            ->withPivot('is_developer', 'is_publisher');
-    }
-
-    public function lexemes() {
+    public function lexeme() {
         return $this->belongsToMany(LexemeClass::class);
     }
 
-    public function users() {
+    public function platform() {
+        return $this->belongsTo(Platform::class);
+    }
+
+    public function publisherCompany() {
+        return $this->belongsTo(Company::class, 'company_id', 'as_publisher_company_id');
+    }
+
+    public function title() {
+        return $this->belongsTo(Title::class);
+    }
+
+    public function user() {
         return $this->belongsToMany(User::class)
             ->withPivot('is_learning');
     }

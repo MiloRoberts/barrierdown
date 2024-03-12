@@ -14,19 +14,19 @@ class Lexeme extends Model
 
     public $timestamps = false;
 
-    public function lexeme_items() {
+    public function lexeme_item() {
         return $this->belongsTo(LexemeItem::class);
     }
 
-    public function lexeme_meanings() {
+    public function lexeme_meaning() {
         return $this->belongsTo(LexemeMeaning::class);
     }
     
-    public function lexeme_readings() {
+    public function lexeme_reading() {
         return $this->belongsTo(LexemeReading::class);
     }
 
-    public function lexical_classes() {
+    public function lexical_class() {
         return $this->belongsToMany(LexicalClass::class);
     }
 
@@ -34,11 +34,11 @@ class Lexeme extends Model
         return $this->belongsToMany(KanjiClass::class);
     }
 
-    public function games() {
+    public function game() {
         return $this->belongsToMany(Game::class);
     }
 
-    public function users() {
+    public function user() {
         return $this->belongsToMany(User::class)
             ->withPivot('is_learning');
     }

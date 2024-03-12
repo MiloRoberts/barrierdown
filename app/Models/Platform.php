@@ -14,7 +14,7 @@ class Platform extends Model
 
     public $timestamps = false;
 
-    public function games() {
+    public function game() {
         return $this->hasMany(Game::class);
     }
 }

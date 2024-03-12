@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LexemeUser extends Model
+class Genre extends Model
 {
     use HasFactory;
 
     protected $fillable = [];
-    protected $table = 'lexeme_user';
+    protected $table = 'genre';
 
     public $timestamps = false;
+
+    public function game() {
+        return $this->belongsToMany(Game::class);
+    }
 }

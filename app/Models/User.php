@@ -45,12 +45,12 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function games() {
+    public function game() {
         return $this->belongsToMany(Game::class)
             ->withPivot('is_learning');
     }
 
-    public function lexemes() {
+    public function lexeme() {
         return $this->belongsToMany(Game::class)
             ->withPivot('is_learning');
     }

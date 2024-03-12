@@ -14,19 +14,19 @@ class Kanji extends Model
 
     public $timestamps = false;
     
-    public function kanji_characters() {
+    public function kanji_character() {
         return $this->belongsTo(KanjiCharacter::class);
     }
 
-    public function kanji_meanings() {
+    public function kanji_meaning() {
         return $this->belongsTo(KanjiMeaning::class);
     }
 
-    public function kanji_readings() {
+    public function kanji_reading() {
         return $this->belongsTo(KanjiReading::class);
     }
 
-    public function lexemes() {
+    public function lexeme() {
         return $this->belongsToMany(LexemeClass::class);
     }
 }

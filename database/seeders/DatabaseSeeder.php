@@ -4,10 +4,13 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Company;
-use App\Models\CompanyGame;
 use App\Models\Developer;
+use App\Models\Difficulty;
 use App\Models\Game;
+use App\Models\GameDeveloperCompany;
+use App\Models\GameGenre;
 use App\Models\GameLexeme;
+use App\Models\Genre;
 use App\Models\Kanji;
 use App\Models\KanjiMeaning;
 use App\Models\KanjiReading;
@@ -62,20 +65,6 @@ class DatabaseSeeder extends Seeder
             'short_name' => 'Super Famicom',
             'slug' => 'nintendo-super-famicom'
         ]);
-        
-        Game::create([
-            'platform_id' => $sony_playstation->id,
-            'title_id' => $culdcept_expansion_plus->id,
-            'slug' => 'culdcept-expansion-plus-sony-playstation',
-            'year_released' => 2000
-        ]);
-
-        Game::create([
-            'platform_id' => $nintendo_super_famicom->id,
-            'title_id' => $super_puyo_puyo_tsuu_remix->id,
-            'slug' => 'super-puyo-puyo-tsuu-remix-super-famicom',
-            'year_released' => 1996
-        ]);
 
         $omiyaSoft = Company::create([
             'name' => 'Omiya Soft',
@@ -91,24 +80,86 @@ class DatabaseSeeder extends Seeder
             'name' => 'Compile',
             'slug' => 'compile'
         ]);
-        
-        CompanyGame::create([
-            'game_id' => $culdcept_expansion_plus->id,
-            'company_id' => $omiyaSoft->id,
-            'is_developer' => true
+
+        $cardBattle = Genre::create([
+            'name' => 'card battle'
+        ]);
+
+        $boardGame = Genre::create([
+            'name' => 'board game'
+        ]);
+
+        $puzzle = Genre::create([
+            'name' => 'puzzle'
         ]);
         
-        CompanyGame::create([
-            'game_id' => $culdcept_expansion_plus->id,
-            'company_id' => $mediaFactory->id,
-            'is_publisher' => true
-        ]);        
+        $tileMatching = Genre::create([
+            'name' => 'tile matching'
+        ]);
+
+        $light = Difficulty::create([
+            'level' => 'light'
+        ]);
+
+        $moderate = Difficulty::create([
+            'level' => 'moderate'
+        ]);
+
+        $heavy = Difficulty::create([
+            'level' => 'heavy'
+        ]);
+
+        Game::create([
+            'platform_id' => $sony_playstation->id,
+            'title_id' => $culdcept_expansion_plus->id,
+            'slug' => 'culdcept-expansion-plus-sony-playstation',
+            'as_publisher_company_id' => $mediaFactory->id,
+            'difficulty_id' => $moderate->id,
+            'year_released' => 2000
+        ]);
+
+        Game::create([
+            'platform_id' => $nintendo_super_famicom->id,
+            'title_id' => $super_puyo_puyo_tsuu_remix->id,
+            'slug' => 'super-puyo-puyo-tsuu-remix-super-famicom',
+            'difficulty_id' => $light->id,
+            'as_publisher_company_id' => $compile->id,
+            'year_released' => 1996
+        ]);
         
-        CompanyGame::create([
+        GameGenre::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'genre_id' => $cardBattle->id
+        ]);
+
+        GameGenre::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'genre_id' => $boardGame->id
+        ]);
+
+        GameGenre::create([
             'game_id' => $nintendo_super_famicom->id,
-            'company_id' => $compile->id,
-            'is_developer' => true,
-            'is_publisher' => true
+            'genre_id' => $tileMatching->id
+        ]);
+
+        GameGenre::create([
+            'game_id' => $nintendo_super_famicom->id,
+            'genre_id' => $puzzle->id
+        ]);
+
+        GameDeveloperCompany::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'company_id' => $omiyaSoft->id
+        ]);
+        
+        GameDeveloperCompany::create([
+            'game_id' => $nintendo_super_famicom->id,
+            'company_id' => $compile->id
+        ]);
+
+        GameDeveloperCompany::create([
+            'game_id' => $culdcept_expansion_plus->id,
+            'company_id' => $compile->id
         ]);
 
         LexicalClass::create([

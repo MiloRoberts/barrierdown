@@ -11,16 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('company_game', function (Blueprint $table) {
+        Schema::create('user_game', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id');
             $table->foreignId('game_id');
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->foreignId('user_id');
             $table->foreign('game_id')->references('id')->on('game');
-            $table->unique( array('company_id', 'game_id'), 'company_game_unique' );
-            $table->boolean('is_developer')->default(false);
-            $table->boolean('is_publisher')->default(false);
-            // $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('user');
+            $table->unique( array('game_id', 'user_id'), 'user_game_unique' );
+            $table->boolean('is_learning')->default(false);
         });
     }
 
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('company_game');
+        Schema::dropIfExists('user_game');
     }
 };

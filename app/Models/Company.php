@@ -14,8 +14,11 @@ class Company extends Model
 
     public $timestamps = false;
 
-    public function games() {
-        return $this->belongsToMany(Game::class)
-            ->withPivot('is_developer', 'is_publisher');
+    public function developerGame() {
+        return $this->belongsToMany(Game::class, 'game_id', 'id');
+    }
+
+    public function publisherGame() {
+        return $this->hasMany(Game::class, 'as_publisher_company_id', 'id');
     }
 }

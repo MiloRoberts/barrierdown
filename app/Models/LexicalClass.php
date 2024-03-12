@@ -14,7 +14,7 @@ class LexicalClass extends Model
 
     public $timestamps = false;
 
-    public function lexemes() {
+    public function lexeme() {
         return $this->belongsToMany(LexemeClass::class);
     }
 }

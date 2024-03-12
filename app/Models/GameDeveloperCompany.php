@@ -5,16 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class LexemeItem extends Model
+class GameDeveloperCompany extends Model
 {
     use HasFactory;
 
     protected $fillable = [];
-    protected $table = 'lexeme_item';
+    protected $table = 'game_developer_company';
 
     public $timestamps = false;
-
-    public function lexeme() {
-        return $this->hasMany(Lexeme::class);
-    }
 }

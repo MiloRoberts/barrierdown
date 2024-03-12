@@ -14,7 +14,7 @@ class LexemeReading extends Model
 
     public $timestamps = false;
 
-    public function lexemes() {
+    public function lexeme() {
         return $this->hasMany(Lexeme::class);
     }
 }
