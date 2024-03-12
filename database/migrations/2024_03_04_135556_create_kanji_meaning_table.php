@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('kanji_meaning', function (Blueprint $table) {
             $table->id();
-            $table->string('meaning')->unique();
-            // $table->timestamps();
+            $table->string('meaning', 50)->unique();
         });
     }
 

@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('title', function (Blueprint $table) {
             $table->id();
-            $table->string('english_name')->unique();
-            $table->string('japanese_name')->unique();
-            // $table->timestamps();
+            $table->string('english_title', 60)->unique();
+            $table->string('japanese_title', 60)->unique();
         });
     }
 

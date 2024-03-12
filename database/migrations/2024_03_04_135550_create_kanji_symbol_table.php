@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('kanji_symbol', function (Blueprint $table) {
             $table->id();
-            $table->string('symbol')->unique();
+            $table->char('symbol', 1)->unique();
             $table->string('reference', 8);
         });
     }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('game_id');
             $table->foreign('game_id')->references('id')->on('game')->onDelete('cascade');
-            $table->string('name');
+            $table->string('name', 40);
         });
     }
 

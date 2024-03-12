@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('lexeme_item', function (Blueprint $table) {
             $table->id();
-            $table->string('item')->unique();
+            $table->string('item', 30)->unique();
         });
     }
 

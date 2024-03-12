@@ -23,9 +23,9 @@ return new class extends Migration
             $table->foreignId('vocab_size_id');
             $table->foreign('vocab_size_id')->references('id')->on('vocab_size')->onDelete('cascade');
             $table->text('info')->nullable();
-            $table->string('short_description');
-            $table->year('year_released');
-            $table->string('slug')->unique();
+            $table->string('short_description', 80);
+            $table->year('year_released', 4);
+            $table->string('slug', 100)->unique();
             // $table->datetime('...stuff...');
             $table->timestamps();
         });

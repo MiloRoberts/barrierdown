@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('platform', function (Blueprint $table) {
             $table->id();
-            $table->string('full_name')->unique();
-            $table->string('short_name')->unique();
-            $table->string('slug')->unique();
+            $table->string('full_name', 22)->unique();
+            $table->string('short_name', 22)->unique();
+            $table->string('slug', 22)->unique();
             // $table->timestamps();
         });
     }

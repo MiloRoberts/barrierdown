@@ -46,13 +46,13 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $culdcept_expansion_plus = Title::create([
-            'english_name' => 'Culdcept Expansion Plus',
-            'japanese_name' => 'カルドセプト エキスパンション・プラス'
+            'english_title' => 'Culdcept Expansion Plus',
+            'japanese_title' => 'カルドセプト エキスパンション・プラス'
         ]);
 
         $super_puyo_puyo_tsuu_remix = Title::create([
-            'english_name' => 'Super Puyo Puyo Tsuu Remix',
-            'japanese_name' => 'すーぱーぷよぷよ通リミックス'
+            'english_title' => 'Super Puyo Puyo Tsuu Remix',
+            'japanese_title' => 'すーぱーぷよぷよ通リミックス'
         ]);
         
         $sony_playstation = Platform::create([

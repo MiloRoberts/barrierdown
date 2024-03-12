@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('vocab_size', function (Blueprint $table) {
             $table->id();
-            $table->string('size')->unique();
+            $table->string('size', 15)->unique();
         });
     }
 
