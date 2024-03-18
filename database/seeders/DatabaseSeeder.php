@@ -83,19 +83,23 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $cardBattle = Genre::create([
-            'name' => 'card battle'
+            'name' => 'Card Battle',
+            'slug' => 'card-battle'
         ]);
 
         $boardGame = Genre::create([
-            'name' => 'board game'
+            'name' => 'Board Game',
+            'slug' => 'board-game'
         ]);
 
         $puzzle = Genre::create([
-            'name' => 'puzzle'
+            'name' => 'Puzzle',
+            'slug' => 'puzzle'
         ]);
         
         $tileMatching = Genre::create([
-            'name' => 'tile matching'
+            'name' => 'Tile Matching',
+            'slug' => 'tile-matching'
         ]);
 
         $light = VocabSize::create([

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('user', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
+            $table->string('username', 30)->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             // password needs to be encrypted

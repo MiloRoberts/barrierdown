@@ -13,12 +13,24 @@
                 <!-- <li>
                     <a href="/">Home</a>
                 </li> -->
-                <li>
-                    <a href="/login">Sign in</a>
-                </li>
-                <li>
-                    <a href="/register">Sign up</a>
-                </li>
+                @auth
+                    <li>
+                        <a href="#">another link for {{ auth()->user()->username }}</a>
+                    </li>
+
+                    <form method="POST" action="/logout">
+                        @csrf
+
+                        <button type="submit">Log Out</button>
+                    </form>
+                @else
+                    <li>
+                        <a href="/login">Sign in</a>
+                    </li>
+                    <li>
+                        <a href="/register">Sign up</a>
+                    </li>
+                @endguest
             </ul>
         </nav>
     </header>
@@ -34,5 +46,10 @@
             </div>    
         @endforeach
     </main>
+    @if (session()->has('success'))
+        <div>
+            <p>{{ session()->get('success') }}</p>
+        </div>
+    @endif
 </body>
 </html>

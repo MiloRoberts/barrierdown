@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('game', function (Blueprint $table) {
             $table->id();
+            
+            // unique constraint
             $table->foreignId('title_id');
             $table->foreign('title_id')->references('id')->on('title')->onDelete('cascade');
             $table->foreignId('platform_id');
@@ -20,13 +22,16 @@ return new class extends Migration
             $table->foreignId('as_publisher_company_id');
             $table->foreign('as_publisher_company_id')->references('id')->on('company')->onDelete('cascade');
             $table->unique( array('title_id','platform_id', 'as_publisher_company_id'), 'game_unique' );
+            
+            // foreign ids
             $table->foreignId('vocab_size_id');
             $table->foreign('vocab_size_id')->references('id')->on('vocab_size')->onDelete('cascade');
+
+            // more fields
             $table->text('info')->nullable();
             $table->string('short_description', 80);
             $table->year('year_released', 4);
             $table->string('slug', 100)->unique();
-            // $table->datetime('...stuff...');
             $table->timestamps();
         });
     }

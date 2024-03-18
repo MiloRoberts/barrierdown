@@ -22,5 +22,22 @@
             </ul>
         </nav>
     </header>
+    <main>
+        <h1>Log In</h1>
+        <form method="POST" action="/login">
+            @csrf
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="{{ old('email') }}" required>
+            @error('email')
+                <p>{{ $message }}</p>
+            @enderror
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+            @error('password')
+                <p>{{ $message }}</p>
+            @enderror
+            <button type="submit">Submit</button>
+        </form>
+    </main>
 </body>
 </html>
