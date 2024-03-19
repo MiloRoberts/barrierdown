@@ -183,16 +183,32 @@ class DatabaseSeeder extends Seeder
             'class' => 'noun'
         ]);
 
+        LexicalClass::create([
+            'class' => 'ichidan verb, transitive'
+        ]);
+
         LexemeItem::create([
             'item' => '日本'
+        ]);
+
+        LexemeItem::create([
+            'item' => 'やめる'
         ]);
 
         LexemeMeaning::create([
             'meaning' => 'Japan'
         ]);
 
+        LexemeMeaning::create([
+            'meaning' => 'to quit'
+        ]);
+
         LexemeReading::create([
             'reading' => 'にほん'
+        ]);
+
+        LexemeReading::create([
+            'reading' => ''
         ]);
 
         KanjiSymbol::create([
@@ -218,6 +234,12 @@ class DatabaseSeeder extends Seeder
             'lexeme_item_id' => 1,
             'lexeme_meaning_id' => 1,
             'lexeme_reading_id' => 1
+        ]);
+
+        Lexeme::create([
+            'lexeme_item_id' => 2,
+            'lexeme_meaning_id' => 2,
+            'lexeme_reading_id' => 2
         ]);
 
         LexemeLexicalClass::create([

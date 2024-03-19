@@ -21,4 +21,9 @@ class GameSection extends Model
     public function lexeme() {
         return $this->belongsToMany(LexemeClass::class);
     }
+
+    public function user() {
+        return $this->belongsToMany(User::class)
+            ->withPivot('is_learning');
+    }
 }

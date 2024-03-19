@@ -36,11 +36,6 @@ class Game extends Model
         return $this->belongsTo(Title::class);
     }
 
-    public function user() {
-        return $this->belongsToMany(User::class)
-            ->withPivot('is_learning');
-    }
-
     public function vocab_size() {
         return $this->belongsTo(VocabSize::class);
     }

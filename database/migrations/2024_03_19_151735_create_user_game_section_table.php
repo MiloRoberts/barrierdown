@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_game', function (Blueprint $table) {
+        Schema::create('user_game_section', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('game_id');
+            $table->foreignId('game_section_id');
             $table->foreignId('user_id');
-            $table->foreign('game_id')->references('id')->on('game');
+            $table->foreign('game_section_id')->references('id')->on('game_section');
             $table->foreign('user_id')->references('id')->on('user');
-            $table->unique( array('game_id', 'user_id'), 'user_game_unique' );
+            $table->unique( array('user_id', 'game_section_id'), 'user_game_section_unique' );
             $table->boolean('is_learning')->default(false);
         });
     }
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_game');
+        Schema::dropIfExists('user_game_section');
     }
 };

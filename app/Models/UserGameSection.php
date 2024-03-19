@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserGame extends Model
+class UserGameSection extends Model
 {
     use HasFactory;
 
     protected $fillable = [];
-    protected $table = 'user_game';
+    protected $table = 'user_game_section';
 
     public $timestamps = false;
 }

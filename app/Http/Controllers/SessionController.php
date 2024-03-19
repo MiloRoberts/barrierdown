@@ -20,7 +20,7 @@ class SessionController extends Controller
         if (auth()->attempt($attributes)) {
             
             session()->flash('success', 'Welcome back.');
-            return redirect('/');
+            return redirect('/dashboard');
         }
 
         throw ValidationException::withMessages([

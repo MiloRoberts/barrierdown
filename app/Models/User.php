@@ -45,8 +45,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function game() {
-        return $this->belongsToMany(Game::class)
+    public function gameSection() {
+        return $this->belongsToMany(GameSection::class)
             ->withPivot('is_learning');
     }
 

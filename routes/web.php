@@ -35,4 +35,22 @@ Route::get('/games/{game:slug}', function (Game $game) {
     ]);
 });
 
+Route::get('/dashboard', function() {
+    return view('dashboard');
+})->middleware('auth');
 
+Route::get('/account', function() {
+    return view('account');
+})->middleware('auth');
+
+Route::get('/study', function() {
+    return view('study');
+})->middleware('auth');
+
+Route::get('/about', function() {
+    return view('about');
+})->middleware('auth');
+
+Route::get('/games', function() {
+    return view('games');
+})->middleware('auth');
