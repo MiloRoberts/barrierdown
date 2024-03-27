@@ -41,6 +41,8 @@
             @error('password')
                 <p>{{ $message }}</p>
             @enderror
+            <label for="password_confirmation">Confirm Password</label>
+            <input type="password" name="password_confirmation" id="password_confirmation" required>
             <button type="submit">Submit</button>
         </form>
     </main>

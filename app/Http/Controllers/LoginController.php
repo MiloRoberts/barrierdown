@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException; 
 
-class SessionController extends Controller
+class LoginController extends Controller
 {
     public function create() {
         return view('login.create');
@@ -17,8 +18,8 @@ class SessionController extends Controller
             'password' => ['required']
         ]);
 
-        if (auth()->attempt($attributes)) {
-            
+        if (Auth::attempt($attributes)) {
+            request()->session()->regenerate();            
             session()->flash('success', 'Welcome back.');
             return redirect('/dashboard');
         }
@@ -32,8 +33,12 @@ class SessionController extends Controller
         //     ->withErrors(['email' => 'Your credentials could not be verified']);
     }
 
-    public function destroy() {
-        auth()->logout();
+    public function destroy(Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
 
         return redirect('/')->with('success', 'Goodbye');
     }
