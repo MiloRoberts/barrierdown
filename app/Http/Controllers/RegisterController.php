@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
@@ -24,7 +25,7 @@ class RegisterController extends Controller
         
         $this->insertUserLexeme($user);
         $this->insertUserGameSection($user);
-
+        event(new Registered($user));
         auth()->login($user);
         session()->flash('success', 'Your account has been created.');
         return redirect('/dashboard');

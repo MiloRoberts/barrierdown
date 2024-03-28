@@ -38,6 +38,7 @@
             @enderror
             <button type="submit">Submit</button>
         </form>
+        <a href="/forgot-password">forgot password</a>
     </main>
 </body>
 </html>
